@@ -658,6 +658,9 @@
      ->touchmove:手指移动
      ->touchend:手指离开
      ->touchcancle:在操作过程中出现意外导致程序突然退出，在touchcancle事件中可以记录一些事情(一般不用)*/
+    $(document).on("touchmove", function (ev) {
+        ev.preventDefault();
+    });
     var winW = document.documentElement.clientWidth,
             winH = document.documentElement.clientHeight;
     var state = 0;
