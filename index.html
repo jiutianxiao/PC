@@ -170,8 +170,6 @@
             border-radius: 30%;
         }
 
-
-
         /*以下是动画部分*/
         /*首页动画*/
         .index img:nth-child(1) {
@@ -686,16 +684,15 @@
                 tPage = top.getElementsByTagName("div"),
                 cont = document.getElementById("bottom");
         a.style.webkitTransitionDuration = "1s";
-        setTimeout((function(){
-            a.style.webkitTransitionDuration = "none";
-        })(),1000)
+        setTimeout((function () {
+            a.style.webkitTransitionDuration = 0;
+        })(), 1000)
         a.style.top = -winH + "px";
         if (state === 0) {
             bind();
             state = 1;
         } else {
-            animation(n,top,cont);
-
+            animation(n, top, cont);
         }
     });
 
@@ -714,7 +711,18 @@
             a.style.webkitTransitionDuration = "1s";
             a.style.top = 0 + "px"
         })(a), 110)
-
+    };
+    var star1 = function () {
+        var a = document.getElementById("index1");
+        a.className = "index"
+        a.style.webkitTransitionDuration = "0s";
+        a.style.top = winH + "px"
+    }
+    var star2 = function () {
+        var a = document.getElementById("index1");
+        a.className = "index"
+        a.style.webkitTransitionDuration = "0s";
+        a.style.top = -winH + "px"
     }
     var n = 0;
 
@@ -723,10 +731,14 @@
         var cont = document.getElementById("bottom")
         animation(n, top, cont);
         touch.on("#top", "swipeleft", function () {
-            if(n >= 3){
-                n=3;
+            if (n >= 3) {
                 star();
-            }else{
+                bark(top,cont)
+                n = 0;
+            } else {
+                if(n==2){
+                    star1()
+                }
                 n++;
                 move(n)
             }
@@ -736,16 +748,23 @@
                 n = 0;
                 star();
             } else {
+                if(n=1){
+                    star2()
+                }
                 n--;
                 move(n)
             }
 
         });
         touch.on("#bottom", "swipeup", function () {
-            if(n >= 3){
-                n=3;
+            if (n >= 3) {
+                n = 0;
                 star();
-            }else{
+                bark(top,cont)
+            } else {
+                if(n==2){
+                    star1()
+                }
                 n++;
                 move(n)
             }
@@ -755,6 +774,9 @@
                 n = 0;
                 star();
             } else {
+                if(n=1){
+                    star2()
+                }
                 n--;
                 move(n)
             }
@@ -791,4 +813,12 @@
     }
 
 
+    var bark=function(top,cont){
+        setTimeout((function(){
+            top.style.webkitTransitionDuration =".01s";
+            cont.style.webkitTransitionDuration=".01s"
+            top.style.left=0;
+            cont.style.top=0;
+        })(),100)
+    }
 </script>
