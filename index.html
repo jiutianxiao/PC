@@ -702,7 +702,7 @@
             winH = document.documentElement.clientHeight;
     var state = 0;
     document.documentElement.style.fontSize = winW / 750 * 100 + "px";
-    touch.on("#index1", "touchstart", function (ev) {
+/*    touch.on("#index1", "touchstart", function (ev) {
         var top = document.getElementById("top"),
                 tPage = top.getElementsByTagName("div"),
                 cont = document.getElementById("bottom");
@@ -721,8 +721,8 @@
             }
             cPage = cPage.nextSibling;
         }
-    });
-    touch.on("#index1", "touchend", function (ev) {
+    });*/
+    touch.on("#index1", "swipe", function (ev) {
         var a = (this).parentNode;
         var top = document.getElementById("top"),
                 tPage = top.getElementsByTagName("div"),
