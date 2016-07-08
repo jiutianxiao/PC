@@ -11,6 +11,48 @@
             height: 100%;
             overflow: hidden;
         }
+        .music{
+            display: none;
+            position: absolute;
+            top: .2rem;
+            right: .2rem;
+            z-index: 100;
+            width: .6rem;
+            height: .6rem;
+            background: url("./img/music.svg") no-repeat;
+            background-size: 100% 100%;
+        }
+        .music.move {
+            -webkit-animation: musicMove 1s linear infinite both;
+            animation: musicMove 1s linear infinite both;
+        }
+
+        .move .musicAudio {
+            display: none;
+        }
+
+        @-webkit-keyframes musicMove {
+            0% {
+                -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+            100% {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes musicMove {
+            0% {
+                -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+            100% {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+
 
         ul {
             list-style: none;
@@ -561,6 +603,9 @@
     </style>
 </head>
 <body>
+<section class="music" id="music">
+    <audio src="img/msd.mp3" id="musicAudio" preload="none" loop></audio>
+</section>
 <div id="box">
     <div class="index" id="index1">
         <img src="./img/bg.png" alt=""/>
@@ -814,11 +859,36 @@
 
 
     var bark=function(top,cont){
-        setTimeout((function(){
-            top.style.webkitTransitionDuration =".01s";
-            cont.style.webkitTransitionDuration=".01s"
+            top.style.webkitTransitionDuration =".00001s";
+            cont.style.webkitTransitionDuration=".00001s"
             top.style.left=0;
             cont.style.top=0;
-        })(),100)
     }
+
+
+
+
+
+    var music = document.getElementById("music"),
+            musicAudio = document.getElementById("musicAudio");
+    window.setTimeout(function () {
+        musicAudio.play();//->让音频播放:浏览器开始下载资源文件,也就是让它播放到出声音还需要一段时间,只有发出声音后我们才会显示音乐的图标
+        musicAudio.addEventListener("canplay", function () {
+            //->canplay:音频文件已经可以播放了,但是不一定是所有资源都加载完成了,大部分是边播放边界
+            music.style.display = "block";
+            music.className = "music move";
+        }, false);
+    }, 1000);
+    music.addEventListener("click", function () {
+        //->当前是暂停状态我让其播放
+        if (musicAudio.paused) {
+            musicAudio.play();
+            music.className = "music move";
+            return;
+        }
+        //->当前是播放状态我让其暂停
+        musicAudio.pause();
+        music.className = "music";
+    }, false);
+
 </script>
