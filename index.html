@@ -692,6 +692,7 @@
             bind();
             state = 1;
         } else {
+            bark(top,cont)
             animation(n, top, cont);
         }
     });
@@ -733,7 +734,7 @@
         touch.on("#top", "swipeleft", function () {
             if (n >= 3) {
                 star();
-                bark(top,cont)
+//                bark(top,cont)
                 n = 0;
             } else {
                 if(n==2){
@@ -760,7 +761,6 @@
             if (n >= 3) {
                 n = 0;
                 star();
-                bark(top,cont)
             } else {
                 if(n==2){
                     star1()
