@@ -1,68 +1,272 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
-    <meta name="format-detection" content="telephone=no"/>
-    <meta name="apple-mobile-web-app-capable" content="yes"/>
-    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
-    <title>刘俊强的简历</title>
-    <link charset="utf-8" type="text/css" rel="stylesheet" href="css/reset.min.css"/>
-    <link charset="utf-8" type="text/css" rel="stylesheet" href="css/swiper.min.css"/>
-    <link charset="utf-8" type="text/css" rel="stylesheet" href="css/css.css"/>
     <title></title>
+    <style>
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
 
+        ul {
+            list-style: none;
+        }
+
+        span {
+            display: inline-block;
+
+        }
+
+        html, body, div, img {
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            font-size: 100px;
+        }
+
+        #box {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .index {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background: #4081EA;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            opacity: 1;
+            z-index: 10;
+        }
+
+        .index img {
+            position: absolute;
+            display: inline-block;
+        }
+
+        .index img:nth-child(1) {
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .index > img {
+            opacity: 0;
+        }
+
+        .index img:nth-child(2) {
+            opacity: 1;
+        }
+
+        .index img:nth-child(2), .index img:nth-child(3) {
+            top: 1rem;
+            left: 1rem;
+            height: 4rem;
+        }
+
+        .content {
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            position: absolute;
+            z-index: 0;
+        }
+
+        img {
+            border: none;
+        }
+
+        .top {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 15%;
+            background: url("./img/top-bg.png") no-repeat center;
+            background-size: 100% 100%;
+            overflow: hidden;
+        }
+
+        .topimg {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 400%;
+            height: 100%;
+        }
+
+        .topimg > div {
+            width: 25%;
+            height: 100%;
+            text-align: center;
+            float: left;
+        }
+
+        .bottom {
+            position: absolute;
+            top: 15%;
+            width: 100%;
+            height: 85%;
+            overflow: hidden;
+        }
+
+        .bottom > div {
+            /*background: red;*/
+            position: absolute;
+            top: -9.8rem;
+            left: 0;
+            width: 100%;
+            height: 400%;
+        }
+
+        .bottom > div > div {
+            height: 25%;
+            background: url("./img/bg-1.png") no-repeat center 0, 0;
+            background-size: 100%, 100%;
+            overflow: hidden;
+        }
+
+        ul li {
+            font-size: .4rem;
+            margin-top: .2rem;
+            border-bottom: 1px dashed #4081EA;
+        }
+
+        .page1 ul li span {
+            font-size: .45rem;
+            border-left: 1px double #4081EA;
+            border-radius: 30%;
+        }
+
+        .page2 ul:nth-child(2) li {
+            width: 1.5rem;
+            height: 1.5rem;
+            border: 1px solid #4081EA;
+            background: red;
+        }
+
+        /*以下是动画部分*/
+        /*首页动画*/
+        .index img:nth-child(1) {
+            -webkit-animation: flipInY .9s linear 1s both;
+            animation: flipInY .9s linear 1s both;
+        }
+
+        .index img:nth-child(2) {
+            -webkit-animation: flipInY 2s linear .1s both;
+            animation: flipInY 2s linear .1s both;
+        }
+
+        .index img:nth-child(3) {
+            -webkit-animation: flipInY .9s linear 2s both;
+            animation: flipInY .9s linear 2s both;
+        }
+
+        @-webkit-keyframes flipInY {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes flipInY {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+
+    </style>
 </head>
 <body>
-<section class="music" id="music">
-    <audio id="musicAudio" preload="none" loop src="./audio/MP3.mp3"/>
-</section>
+<div id="box">
+    <div class="index" id="index1">
+        <img src="./img/bg.png" alt=""/>
+        <img src="./img/re-1.png" alt=""/>
+        <img src="./img/re-2.png" alt=""/>
+    </div>
+    <div class="content">
+        <div class="top">
+            <div class="topimg">
+                <div><img src="./img/top1.png" alt=""/></div>
+                <div><img src="img/top2.png" alt=""/></div>
+                <div><img src="./img/top3.png" alt=""/></div>
+                <div><img src="./img/top4.png" alt=""/></div>
+            </div>
+        </div>
+        <div class="bottom">
+            <div>
+                <div class="page1">
+                    <ul>
+                        <li>姓名：<span>刘俊强</span></li>
+                        <li>职位：<span>js全栈工程师</span></li>
+                        <li>院校：<span>新乡学院</span></li>
+                        <li>学历：<span>专科</span></li>
+                        <li>电话：<span>13693730889</span></li>
+                        <li>企鹅：<span>757715300</span></li>
+                        <li>邮箱：<span>757715300@qq.com</span></li>
+                    </ul>
+                </div>
+                <div class="page2">
+                    <ul>
+                        <li>HTML5</li>
+                        <li>CSS3</li>
+                        <li>JavaScript</li>
+                        <li>jQuery</li>
+                        <li>Node</li>
+                        <li>angularJs</li>
+                        <li>GULP</li>
+                        <li>ES6</li>
+                        <li>react</li>
+                    </ul>
+                </div>
+                <div class="page3">
+                    <ul>
+                        <li>书籍类：喜好古典名著</li>
+                        <li>例如：<span>《三国演义》</span><span>《红楼梦》</span><span>《春秋左传·战国策》</span>等等</li>
+                        <li>运动类：强体能锻炼</li>
+                        <li>例如：<span>耐力跑</span>等等</li>
+                        <li>总结：</li>
+                        <li>我们中国拥有五千年的文明，文化神秘莫测，我们可以借鉴之处比比皆是，思之不及，不若求于先辈之智，托中华文化之荫德</li>
+                        <li>生命在于运动，没有良好的身体，怎么能够追随命运的脚步，顺长河而漂流</li>
+                    </ul>
+                </div>
+                <div class="page4">
+                    <p>生活的随意、无畏，却奉行『慎独』与不屈</p>
 
-<section class="swiper-container">
-    <div class="swiper-wrapper">
-        <div class="swiper-slide page1 ">
-            <img src="./img/tiltel.png" alt=""/>
-            <h2>个人简历</h2>
-            <p>JavaScript高级工程师 <span><br/>图片虽然不是多好看 <br/>但是 <br/>图片背景图都是自己做的</span></p>
-        </div>
-        <div class="swiper-slide page2 ">
-            <img src="./img/bg1.png" alt=""/>
-            <img src="./img/bord.png" alt=""/>
-            <h2>个人信息</h2>
-            <ul>
-                <li><span>姓名：</span>刘俊强</li>
-                <li><span>专业：</span>计算机信息管理</li>
-                <li><span>毕业院校：</span>新乡学院</li>
-                <li><span>学历：</span>大专</li>
-            </ul>
-        </div>
-        <div class="swiper-slide page3">
-            <!--<img src="./img/bord.png" alt=""/>-->
-            <img src="./img/bg1.png" alt=""/>
-
-            <h2>专业技能</h2>
-            <ul>
-                <li>熟悉一些常用的后台开发语言</li>
-                <li>熟悉一些常用的前端开发工具</li>
-                <li>可以使用Javascript制作客户端 以及移动的开发</li>
-                <li>可以使用HTML5/CSS3+JS制作 一些常用的特效并处理兼容</li>
-            </ul>
-        </div>
-        <div class="swiper-slide page4">
-            <img src="./img/bg1.png" alt=""/>
-            <!--<img src="./img/bord.png" alt=""/>-->
-            <h2>联系方式</h2>
-            <ul>
-                <li><span>phone：</span>13693730889</li>
-                <li><span>QQ:</span>757715300</li>
-                <li><span>mail:</span>langxinjiujiu@foxmail.com</li>
-            </ul>
+                    <p>座右铭：还没开始怎么能轻言放弃</p>
+                </div>
+            </div>
         </div>
     </div>
-</section>
+</div>
 </body>
 </html>
-<script charset="utf-8" type="text/javascript" src="js/swiper.min.js"></script>
-<script charset="utf-8" type="text/javascript" src="js/fastClick.js"></script>
-<script charset="utf-8" type="text/javascript" src="js/js.js"></script>
+<script src="zepto.min.js"></script>
+<script>
+    //阻止默认行为
+    $(document).on("touchmove", function (ev) {
+        ev.preventDefault();
+    });
+    //计算rem
+    document.documentElement.style.fontSize = document.documentElement.clientWidth / 720 * 100 + "px";
+    //
+    var curW = document.documentElement.clientWidth;
+    console.log(curW)
+</script>
